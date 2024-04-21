@@ -8,21 +8,29 @@ let turno: number = 1;
 const sumarTurno = () => {
   if (numeroTurno !== null && numeroTurno !== undefined) {
     turno++;
-    numeroTurno.innerHTML = turno.toString();
+    if (turno < 10) {
+      numeroTurno.innerHTML = turno.toString().padStart(2, "0");
+    } else {
+      numeroTurno.innerHTML = turno.toString();
+    }
   }
 };
 
 const restarTurno = () => {
   if (numeroTurno !== null && numeroTurno !== undefined) {
     turno--;
-    numeroTurno.innerHTML = turno.toString();
+    if (turno > 0 && turno < 10) {
+      numeroTurno.innerHTML = turno.toString().padStart(2, "0");
+    } else {
+      numeroTurno.innerHTML = turno.toString();
+    }
   }
 };
 
 const reset = () => {
   if (numeroTurno !== null && numeroTurno !== undefined) {
     turno = 1;
-    numeroTurno.innerHTML = turno.toString();
+    numeroTurno.innerHTML = turno.toString().padStart(2, "0");
   }
 };
 
@@ -32,7 +40,11 @@ const cambiarTurno = () => {
     const nuevoTurno = parseInt(inputCambiarTurno.value);
     if (!isNaN(nuevoTurno)) {
       turno = nuevoTurno;
-      numeroTurno.innerHTML = turno.toString();
+      if (turno > 0 && turno < 10) {
+        numeroTurno.innerHTML = turno.toString().padStart(2, "0");
+      } else {
+        numeroTurno.innerHTML = turno.toString();
+      }
     }
   }
 };
