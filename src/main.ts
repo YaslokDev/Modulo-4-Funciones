@@ -1,4 +1,4 @@
-const numeroTurno = document.getElementById("numero-turno") as HTMLElement;
+const numeroTurno = document.getElementById("numero-turno");
 const btnTurnoSiguiente = document.getElementById("turnoSiguiente");
 const btnTurnoAnterior = document.getElementById("turnoAnterior");
 const btnReset = document.getElementById("reset");
@@ -35,10 +35,10 @@ const reset = () => {
 };
 
 const cambiarTurno = () => {
-  const inputCambiarTurno = document.getElementById("inputCambiarTurno") as HTMLInputElement;
-  if (inputCambiarTurno !== null && inputCambiarTurno !== undefined) {
+  const inputCambiarTurno = document.getElementById("inputCambiarTurno");
+  if (inputCambiarTurno !== null && inputCambiarTurno !== undefined && inputCambiarTurno instanceof HTMLInputElement) {
     const nuevoTurno = parseInt(inputCambiarTurno.value);
-    if (!isNaN(nuevoTurno)) {
+    if (!isNaN(nuevoTurno) && numeroTurno !== null && numeroTurno !== undefined && numeroTurno instanceof HTMLElement) {
       turno = nuevoTurno;
       if (turno > 0 && turno < 10) {
         numeroTurno.innerHTML = turno.toString().padStart(2, "0");
